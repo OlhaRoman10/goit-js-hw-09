@@ -69,21 +69,24 @@ const images = [
 
 const gallery = document.querySelector('.gallery');
 
-// Check if the gallery element exists before inserting HTML
+// Перевірка існування елемента gallery перед його insert
 if (gallery) {
-  // Create gallery markup
-  const galleryMarkup = images.map(({ preview, original, description }) => 
+  // Функція створення розмітки
+   const galleryMarkup = images.map(({ preview, original, description }) => 
     `<li class="gallery-item">
       <a class="gallery-link" href="${original}">
-        <img class="gallery-image" src="${preview}" alt="${description}" />
+        <img 
+          class="gallery-image" 
+          src="${preview}" 
+          alt="${description}" />
       </a>
     </li>`
   ).join("");
 
-  // Insert gallery items
+  //Функція рендерінгу розмітки
   gallery.insertAdjacentHTML('beforeend', galleryMarkup);
 
-  // Initialize SimpleLightbox
+  // Ініціалізація SimpleLightbox згідно її документації — насамперед секції «Usage» і «Markup».
   const lightbox = new SimpleLightbox('.gallery a', {
     captionsData: 'alt',
     captionDelay: 250,
