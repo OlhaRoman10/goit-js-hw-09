@@ -29,4 +29,14 @@ form.addEventListener('submit', (event) => {
         return;
     }
     
-})
+    console.log(formData);
+    
+    // Очищення локального сховища та форми
+    localStorage.removeItem(STORAGE_KEY);
+    form.reset();
+    
+    // Оновлення об'єкта formData
+    formData.email = "";
+    formData.message = "";
+});
+
